@@ -1,0 +1,110 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <context-param>
+    <param-name>LoggerPath</param-name>
+    <param-value>/WEB-INF/log</param-value>
+  </context-param>
+  <context-param>
+    <param-name>pagesPath</param-name>
+    <param-value>/WEB-INF/pages</param-value>
+  </context-param>
+  <context-param>
+    <param-name>imagesDir</param-name>
+    <param-value>/resources/images</param-value>
+  </context-param>
+  <context-param>
+    <param-name>driver</param-name>
+    <param-value>jdbc:mariadb://localhost</param-value>
+  </context-param>
+  <context-param>
+    <param-name>user</param-name>
+    <param-value>root</param-value>
+  </context-param>
+  <context-param>
+    <param-name>pass</param-name>
+    <param-value></param-value>
+  </context-param>
+  <context-param>
+    <param-name>createDB</param-name>
+    <param-value>/resources/sql/script.sql</param-value>
+  </context-param>
+
+  <filter>
+    <filter-name>Logger</filter-name>
+    <filter-class>org.itstep.servlet.LoggerFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Logger</filter-name>
+    <url-pattern>*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <servlet-name>Home</servlet-name>
+    <servlet-class>org.itstep.servlet.HomeServlet</servlet-class>
+    <init-param>
+      <param-name>page</param-name>
+      <param-value>index.jsp</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>SignUp</servlet-name>
+    <servlet-class>org.itstep.servlet.SignUpServlet</servlet-class>
+    <init-param>
+      <param-name>page</param-name>
+      <param-value>signup.jsp</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
+    <servlet-name>Post</servlet-name>
+    <servlet-class>org.itstep.servlet.PostServlet</servlet-class>
+    <init-param>
+      <param-name>page</param-name>
+      <param-value>post.jsp</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
+    <servlet-name>Admin</servlet-name>
+    <servlet-class>org.itstep.servlet.AdminServlet</servlet-class>
+    <init-param>
+      <param-name>page</param-name>
+      <param-value>admin.jsp</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>Add</servlet-name>
+    <servlet-class>org.itstep.servlet.AddServlet</servlet-class>
+    <init-param>
+      <param-name>page</param-name>
+      <param-value>add.jsp</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Admin</servlet-name>
+    <url-pattern>/admin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Add</servlet-name>
+    <url-pattern>/add</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Home</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Post</servlet-name>
+    <url-pattern>/post</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/resources/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SignUp</servlet-name>
+    <url-pattern>/signup</url-pattern>
+  </servlet-mapping>
+</web-app>
